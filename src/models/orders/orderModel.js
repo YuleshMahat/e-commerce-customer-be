@@ -7,6 +7,10 @@ export const fetchOrderByFilterQuery = (filter) => {
   return Order.find(filter).sort({ createdAt: -1 });
 };
 
+export const fetchOrderByIdQuery = (id) => {
+  return Order.findById(id);
+};
+
 export const findByFilter = (filterObj) => {
   return Order.findOne(filterObj);
 };

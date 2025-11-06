@@ -1,10 +1,12 @@
 import {
   fetchOrderByFilterQuery,
   newOrder,
+  fetchOrderByIdQuery,
 } from "../models/orders/orderModel.js";
 
 export const createNewOrderController = async (req, res) => {
   try {
+    console.log(444, req.body);
     const { customerId, items, total, currency, paymentIntentId, address } =
       req.body;
 
@@ -59,7 +61,7 @@ export const getOrderById = async (req, res) => {
     if (order) {
       return res
         .status(200)
-        .json({ status: "success", message: "Order fetched" }, orders);
+        .json({ status: "success", message: "Order fetched" }, order);
     }
   } catch (error) {
     res.status(500).json({ status: "error", message: "Internal Server Error" });
