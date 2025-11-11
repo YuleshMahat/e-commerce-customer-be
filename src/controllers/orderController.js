@@ -5,8 +5,15 @@ import {
 
 export const createNewOrderController = async (req, res) => {
   try {
-    const { customerId, items, total, currency, paymentIntentId, address } =
-      req.body;
+    const {
+      customerId,
+      customerName,
+      items,
+      total,
+      currency,
+      paymentIntentId,
+      address,
+    } = req.body;
 
     if (!customerId || !items || !address || items.length === 0) {
       return res
@@ -16,6 +23,7 @@ export const createNewOrderController = async (req, res) => {
 
     const order = await newOrder({
       customerId,
+      customerName,
       address,
       items,
       total,
