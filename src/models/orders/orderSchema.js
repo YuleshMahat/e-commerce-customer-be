@@ -36,7 +36,11 @@ const orderSchema = new mongoose.Schema(
       ref: "customer",
       required: true,
     },
-    items: [orderItemSchema],
+    customerName: {
+      type: String,
+      required: true,
+    },
+    items: [orderItemSchema], // <-- array of items
     total: {
       type: Number,
       required: true,

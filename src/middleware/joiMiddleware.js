@@ -91,6 +91,7 @@ export const createOrderValidation = (req, res, next) => {
   let createOrderSchema = Joi.object({
     customerId: Joi.string().required(),
     address: Joi.string().required(),
+    customerName: Joi.string().required(),
     total: Joi.number().required(),
     items: Joi.array().items(orderItemSchema).min(1).required(),
     currency: Joi.string().required(),
