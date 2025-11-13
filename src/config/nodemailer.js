@@ -3,8 +3,7 @@ import config from "./config.js";
 
 // Create transporter using config
 export const transporter = nodemailer.createTransport({
-  host: config.nodemailer.host,
-  port: config.nodemailer.port,
+  service: "gmail",
   auth: {
     user: config.nodemailer.user,
     pass: config.nodemailer.pass,
@@ -22,7 +21,7 @@ transporter.verify((error, success) => {
 
 // Email formatter
 export const emailFormatter = (to, subject, name, link) => ({
-  from: `"Electra Hub ⚡" <${config.nodemailer.user}>`,
+  from: `"Electra Hub ⚡" <electra@hub.com.au}>`,
   to,
   subject,
   html: `
